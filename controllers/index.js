@@ -1,10 +1,10 @@
-var express = require('express')
-  , router = express.Router()
+var express = require('express'), 
+  router = express.Router();
 
 //router.use('/users', require('./users'))
 
 router.get('/', function(req, res) {
-  res.render('index')
-})
+  res.render('index');
+});
 
-module.exports = router
+module.exports = router;
