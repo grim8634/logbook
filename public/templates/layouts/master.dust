@@ -18,7 +18,9 @@
         <div id="wrapper">
             {>"components/nav" /}
             <div class="container index">
-                <h1 class="text-center">LogBook</h1>
+                <div class="page-header">
+                    <h1>LogBook</h1>
+                </div>
                 <div class="row">
                     <div class="col-xs-12 col-md-12">
                         {+body /}
