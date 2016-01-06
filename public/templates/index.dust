@@ -1,0 +1,5 @@
+{>"layouts/master" /}
+
+{<body}
+    Welcome to LogBook
+{/body}

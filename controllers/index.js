@@ -1,10 +1,18 @@
-var express = require('express'), 
-  router = express.Router();
+'use strict';
 
-//router.use('/users', require('./users'))
+var IndexModel = require('../models/index');
 
-router.get('/', function(req, res) {
-  res.render('index');
-});
 
-module.exports = router;
+module.exports = function (router) {
+
+    var model = new IndexModel();
+
+    router.get('/', function (req, res) {
+        
+        
+        res.render('index', model);
+        
+        
+    });
+
+};
