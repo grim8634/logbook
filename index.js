@@ -3,6 +3,15 @@
 var express = require('express');
 var kraken = require('kraken-js');
 
+var path = require('path');
+var mongoose = require('mongoose');
+var dbConfig = require('./db.js');
+var mongoose = require('mongoose');
+mongoose.connect(dbConfig.url);
+
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
 
 var options, app;
 
@@ -22,6 +31,24 @@ options = {
 
 app = module.exports = express();
 app.use(kraken(options));
+
+app.use(require('express-session')({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false
+}));
+
+
+var User = require('./models/user');
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.static(path.join(__dirname, 'public')));
+
+
 app.on('start', function () {
     console.log('Application ready to serve requests.');
     console.log('Environment: %s', app.kraken.get('env:env'));

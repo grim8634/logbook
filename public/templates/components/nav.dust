@@ -18,10 +18,10 @@
                     <a href="/about">About</a>
                 </li>
                 <li class="undefined">
-                    <a href="/login">Login</a>
+                    <a href="/user/login">Login</a>
                 </li>
                 <li class="undefined create-account">
-                    <a href="/register">Create Account</a>
+                    <a href="/user/register">Create Account</a>
                 </li>
             </ul>
         </div>

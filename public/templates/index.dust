@@ -1,5 +1,9 @@
 {>"layouts/master" /}
 
 {<body}
-    Welcome to LogBook
+    Welcome to LogBook {user.username}
+
+    {#user}
+        <h1>User!</h1>
+    {/user}
 {/body}
